@@ -1,1 +1,1 @@
-http://web.syps.tn.edu.tw/xoops/modules/info_what/input.php?key=syps
+http://w4.syps.tn.edu.tw/x2/modules/info_whats/input.php?key=syps

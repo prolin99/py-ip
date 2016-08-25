@@ -18,15 +18,17 @@ class My_GUI(Frame):
         self.grid()
         self.createWidgets()
     def createWidgets(self):
-        self.displayText = Label(self, width="30" , height="3" )
+        self.displayText = Label(self, width="80" , height="3" )
         self.displayText["text"] = "電腦登記"
         self.displayText.grid(row=0, column=0 , columnspan=6 )
 
         self.inputText = Label(self , width="30" , height="2" )
-        self.inputText["text"] = "IP:" + getmyip()
+        my_ip =  getmyip()
+        self.inputText["text"] = "IP:" + my_ip
         self.inputText.grid(row=1, column=0, columnspan=6)
         self.inputText2 = Label(self,  width="30" , height="2")
-        self.inputText2["text"] = "MAC:" + get_mac_address()
+        my_mac = get_mac_address()
+        self.inputText2["text"] = "MAC:" + my_mac
         self.inputText2.grid(row=2, column=0, columnspan=6)
 
         self.inputText3 = Label(self, height="2")
@@ -54,12 +56,14 @@ class My_GUI(Frame):
         #self.displayText["text"] = "This is send button."
         user = self.inputField.get()
         place = self.inputField2.get()
+        my_mac = get_mac_address()
+        my_ip =  getmyip()
         if user ==""   or place=="" :
             self.displayText["text"]=" 不可以留空白"
         else:
 
             file = open('urllink.txt', 'r')
-            web = file.read() + "&user="+user +"&place=" + place
+            web = file.read() +"&ip="+my_ip +"&mac=" + my_mac + "&user="+user +"&place=" + place
             file.close()
             self.displayText["text"]= web
             import urllib.request
